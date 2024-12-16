@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Vehicle CRUD</title>
+   <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body class="bg-slate-50 w-full">
+<header class="bg-white  w-full py-8">
+   <div>
+      <h1 class="text-4xl text-center font-bold ">Vehicle CRUD</h1>
+   </div>
+</header>
+
+<main>
+   <div class="overflow-x-auto shadow-md">
+      <table class="table-auto w-full text-sm text-left">
+         <thead class="uppercase">
+         <tr>
+            <th>ID</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Color</th>
+            <th>Mileage</th>
+            <th>Fabrication Year</th>
+         </tr>
+         </thead>
+         <tbody th:each="">
+
+         </tbody>
+      </table>
+   </div>
+</main>
+
+<footer>
+
+</footer>
+</body>
+</html>

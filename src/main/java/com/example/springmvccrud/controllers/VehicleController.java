@@ -11,11 +11,8 @@ import java.util.List;
 @Controller
 public class VehicleController {
 
-	List<Vehicle> vehicleList = new ArrayList<>();
-
 	@GetMapping("/")
 	public String mainPage(Model model){
-
-		return "";
+		return "mainPage";
 	}
 }
