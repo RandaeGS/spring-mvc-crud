@@ -18,4 +18,7 @@ public class VehicleService {
 		return vehicleRepository.findAll();
 	}
 
+	public void saveVehicle(Vehicle vehicle){
+		vehicleRepository.save(vehicle);
+	}
 }
