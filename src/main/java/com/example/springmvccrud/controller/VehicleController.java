@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/vehicles")
 public class VehicleController {
@@ -54,6 +56,14 @@ public class VehicleController {
 	public String editVehicleForm(@ModelAttribute Vehicle vehicle, @PathVariable("id") Long vehicleId){
 		vehicle.setId(vehicleId);
 		vehicleRepository.save(vehicle);
+		return "redirect:/vehicles";
+	}
+
+	@PostMapping("delete/{id}")
+	public String deleteVehicle(@PathVariable("id") Long vehicleId){
+		Optional<Vehicle> vehicleOptional = vehicleRepository.findById(vehicleId);
+		Vehicle vehicle = vehicleOptional.get();
+		vehicleRepository.delete(vehicle);
 		return "redirect:/vehicles";
 	}
 
