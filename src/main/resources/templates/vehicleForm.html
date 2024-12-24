@@ -11,7 +11,7 @@
   <header class="bg-white shadow-md rounded-lg mb-6 max-w-7xl mx-auto">
     <div class="max-w-7xl mx-auto py-6 px-4">
       <div class="flex justify-between items-center">
-        <h1 class="text-3xl font-bold text-gray-900">Create New Vehicle</h1>
+        <h1 class="text-3xl font-bold text-gray-900" th:text="${vehicle.id == null ? 'Create New Vehicle' : 'Edit Vehicle'}"></h1>
         <a href="/vehicles" class="text-gray-600 hover:text-gray-900">
           Back to List
         </a>
@@ -22,7 +22,11 @@
   <!-- Main Form -->
   <div class="max-w-7xl mx-auto">
     <div class="bg-white shadow-md rounded-lg p-6">
-      <form th:action="@{/vehicles/create}" th:object="${vehicle}" method="POST" class="space-y-6">
+      <form th:action="${vehicle.id == null ? '/vehicles/create' : '/vehicles/edit/' + vehicle.id}"
+            th:object="${vehicle}"
+            method="POST">
+
+        <input type="hidden" th:field="*{id}">
 
         <!-- Brand Field -->
         <div class="grid grid-cols-1 gap-6 mt-4">
