@@ -27,7 +27,7 @@ public class VehicleController {
 	@GetMapping("create")
 	public String createVehiclePage(Model model){
 		model.addAttribute("vehicle", new Vehicle());
-		return "createVehicle";
+		return "vehicleForm";
 	}
 
 	@PostMapping("create")
